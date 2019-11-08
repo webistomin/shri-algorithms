@@ -5,6 +5,7 @@ const bracketsPairs = (str) => {
     '}' : '{'
   };
   
+  
   const openBrackets = ['(', '<', '{'];
   const closeBrackets = [')', '>', '}'];
   const stack = [];
