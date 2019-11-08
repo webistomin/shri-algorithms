@@ -1,23 +1,26 @@
 const bracketsPairs = (str) => {
-  const bracketsPair = {
+  const openBracketsPair = {
+    '(' : ')',
+    '<' : '>',
+    '{' : '}'
+  };
+  
+  const closeBracketsPair = {
     ')' : '(',
     '>' : '<',
     '}' : '{'
   };
   
-  
-  const openBrackets = ['(', '<', '{'];
-  const closeBrackets = [')', '>', '}'];
   const stack = [];
   
   for (let char of str) {
     
-    if (openBrackets.includes(char)) {
+    if (char in openBracketsPair) {
       stack.push(char)
     }
     
-    if (closeBrackets.includes(char)) {
-      if (stack[stack.length - 1] !== bracketsPair[char]) {
+    if (char in closeBracketsPair) {
+      if (stack[stack.length - 1] !== closeBracketsPair[char]) {
         return false
       } else {
         stack.pop();
