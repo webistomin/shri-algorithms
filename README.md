@@ -142,7 +142,7 @@ const walk = (graph) => {
 walk(obj);
 ```
 
-5. Баланс скобок
+## 5. Баланс скобок
 ```js
 const bracketsPairs = (str) => {
   const openBracketsPair = {
