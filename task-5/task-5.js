@@ -1,26 +1,18 @@
 const bracketsPairs = (str) => {
-  const openBracketsPair = {
+  const brackets = {
     '(' : ')',
     '<' : '>',
-    '{' : '}'
-  };
-  
-  const closeBracketsPair = {
-    ')' : '(',
-    '>' : '<',
-    '}' : '{'
+    '{' : '}',
+    '[' : ']',
   };
   
   const stack = [];
   
   for (let char of str) {
-    
-    if (char in openBracketsPair) {
+    if (char in brackets) {
       stack.push(char)
-    }
-    
-    if (char in closeBracketsPair) {
-      if (stack[stack.length - 1] !== closeBracketsPair[char]) {
+    } else if (Object.values(brackets).includes(char)) {
+      if (stack[stack.length - 1] !==  Object.keys(brackets).find(key => brackets[key] === char)) {
         return false
       } else {
         stack.pop();
@@ -28,7 +20,7 @@ const bracketsPairs = (str) => {
     }
   }
   
-  return stack.length <= 0;
+  return stack.length === 0;
 };
 
 console.log(bracketsPairs('(hello)')); // true
